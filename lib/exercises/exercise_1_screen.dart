@@ -5,27 +5,51 @@ class Exercise1Screen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            Icons.looks_one,
-            size: 100,
-            color: Colors.blue,
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("My Home Page"),
+        actions: const [
+          // Icon ở góc phải AppBar
+          Padding(
+            padding: EdgeInsets.only(right: 16.0),
+            child: Icon(Icons.favorite, color: Colors.pink),
           ),
-          const SizedBox(height: 20),
-          const Text(
-            'Bài tập 1',
+        ],
+      ),
+      body: const MyHomeBody(),
+    );
+  }
+}
+
+// Tách body ra thành 1 widget riêng
+class MyHomeBody extends StatelessWidget {
+  const MyHomeBody({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            "Hello, this is MyHomePage!",
             style: TextStyle(
-              fontSize: 32,
-              fontWeight: FontWeight.bold,
+              fontSize: 24,
+              color: Colors.red,
             ),
           ),
-          const SizedBox(height: 10),
-          const Text(
-            'Thêm code bài tập 1 của bạn vào đây',
-            style: TextStyle(fontSize: 16),
+          Icon(
+            Icons.favorite,
+            size: 150,
+            color: Colors.yellow,
+          ),
+          Text(
+            "Hello, this is MyHomePage!",
+            style: TextStyle(
+              fontSize: 24,
+              color: Colors.red,
+            ),
           ),
         ],
       ),
